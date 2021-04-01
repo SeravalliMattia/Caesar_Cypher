@@ -3,7 +3,7 @@
 #include <string.h>
 
 #define MAXCAR (20) //Max number of letter per word
-#define KEY (3) //Number of position a letter have to be moved
+#define KEY (3) //Number of positions the letter has to move back from
 #define KEY2 (26 - KEY) 
 
 typedef char word[MAXCAR + 1];
@@ -52,7 +52,7 @@ word *readFile(FILE *f, int *n){
 
 
 char *translateWord (char *word){
-	//Function that translate the word in input
+	//Function that translates the word in input
 	
 	char *filteredWord = malloc (MAXCAR * sizeof(char));
 	
@@ -76,7 +76,7 @@ char *translateWord (char *word){
 
 
 void stampAllTranslated(word *list, int n){
-	//Function that translate and print all the word in "list" 
+	//Function that translates and prints all the words in "list" 
 	int i;
 	
 	for(i = 0; i < n; i++){
@@ -98,12 +98,12 @@ int main(int argc, char *argv[]){
 		perror("ERROR: File can't be loaded\n");
 	}
 	
-	//I'll read the file
+	//Read the file
 	list = readFile(f, &n);
 	
 	fclose (f);
 	
-	//Print and translate all the word in "list";
+	//Print and translate all the words in "list";
 	stampAllTranslated(list, n);
 	
 	free(list);
